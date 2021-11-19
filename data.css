@@ -1,0 +1,46 @@
+.header {
+    font-size: 32px;
+    color: mistyrose;
+    padding-top: 40px;
+    padding-left: 15px;
+}
+
+p {
+    color: #8ca0cb;
+    font-size: 16px;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.list {
+    color: #8ca0cb;
+    font-size: 16px;
+}
+
+.county {
+    fill: #585858;
+    stroke: #585858;
+}
+
+.selector {
+    padding-top: 6%;
+    position: absolute;
+    padding-left: 15%;
+}
+
+.label1 {
+    transform: translate(-170px, 38px);
+    color: #eadcd1;
+}
+
+.tooltip p {
+    color: black;
+    padding: 20;
+}
+
+.photo {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

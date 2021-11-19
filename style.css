@@ -1,0 +1,99 @@
+body {
+    background-color: #252525;
+    font-family: Helvetica, sans-serif;
+}
+
+.title {
+    font-size: 28px;
+    color: mistyrose;
+    padding-top: 50px;
+    padding-left: 15px;
+}
+
+.label1 {
+    transform: translate(-112px, 35px);
+    color: #eadcd1;
+}
+
+#REtype {
+    margin-left:100px;
+    transform: translate(300px, 25px);
+    display: inline-block;
+}
+
+.county {
+    fill: white;
+    stroke: gray;
+}
+
+.states {
+    stroke: #303030;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+#legend text {
+    font-size: 1em;
+    color: #CBCBCB;
+    font-weight: 390;
+}
+
+#range {
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    font-size: 0.8em;
+    padding: 5px;
+    background: white;
+    border: .8px solid black;
+    border-radius: 3px;
+}
+
+.tooltip p {
+    margin: 0;
+    padding: 0;
+}
+
+.tooltip table {
+    border-collapse: collapse;
+    margin: 1px;
+    padding: 1px;
+}
+
+.wide {
+    width: 150px;
+}
+
+.members {
+    color: dimgray;
+    font-size: 12px;
+    /*text-align: center;*/
+    padding-left: 35%;
+}
+.info {
+    color: #8ca0cb;
+    font-size: 16px;
+    padding-top: 25px;
+    padding-left: 15px;
+}
+
+.form-group {
+    width: 80%;
+    padding-left: 15px;
+}
+
+label {
+    color: lightgray;
+    margin-bottom: 0;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+.axis {
+    stroke-width: 2px;
+    stroke: #b5b5b5;
+    fill: none;
+    shape-rendering: crispEdges;
+}

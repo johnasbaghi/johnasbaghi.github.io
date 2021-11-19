@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="data.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark" id="myNav">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Am I Ready for Renewable?<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="data.html">About our Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="team.html">Meet the Team</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="header">Where did we get our data?</h1>
+                        <h3 class="title">LMP Data</h3>
+                        <p>The basis of our analysis is historical LMP data, gathered from several Independent System Operators (ISO's) around the continental United States. Because ISO data is notoriously difficult to obtain cleanly, we opted to use the historical Day-Ahead LMP dataset created by Dr. Patrick Brown of the Trancik Lab at MIT.</p>
+                        <p><a href="https://zenodo.org/record/3562896">Historical LMP Data Source</a></p>
+                        <h3 class="title">Weather Data</h3>
+                        <p>We used the National Solar Radiation Database, or NSRDB, created by NREL, the National Renewable Energy Laboratory. The NSRDB contains several types of weather-related data attributes such as wind speed, GHI, and temperature which we utilized for our analysis.</p>
+                        <p><a href="https://nsrdb.nrel.gov/">Weather Data Source</a></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="title">What features are important?</h2>
+                        <p class="">Two primary features we used were GHI and wind speed. The wind speed will be used to compare areas that can or already do utilize wind turbines for power generation, and the GHI can be used to evaluate areas that either already utilize solar power generation or could utilize more</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="title">Global Horizontal Irradiance (GHI)</h2>
+                        <p>GHI is the amount of radiation that falls on the horizontal surface of the earth <a href="https://pvpmc.sandia.gov/modeling-steps/1-weather-design-inputs/irradiance-and-insolation-2/global-horizontal-irradiance/">[1]</a>. The map on the right has a dropdown to select a feature. Selecting GHI will display the distribution of GHI across the United States at the county level. Hovering over each county will show the calculated average GHI (W/m2) for the individual county.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="title">Wind Speed</h2>
+                        <p>The data captures the wind speed in m/s. The map on the right has a dropdown to select a feature. Selecting 'Wind Speed' will display the distribution of wind speeds across the United States at the county level. Hovering over each county will show the calculated average wind speed for the individual county.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8" id="attr_col">
+                <div id="attr_map">
+                    <div id="selector" class="selector">
+                    <p class="label1">Select Attribute Type</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="header">About our Model</h1>
+                <h2 class="title">Classifying the U.S. Counties</h2>
+                <p>A Classification tree model was used to produce reliable results given the data had low variability among attributes. The model classified the counties in a way that is visually aligned with climate patterns. Several split metrics were tested, with Gini Impurity producing the most consistent results.Classification Tree attributes:<br></p>
+                <ul class="list">
+                    <li>Average Yearly Wind Speed</li>
+                    <li>Average Yearly Temperature</li>
+                    <li>Average Yearly GHI</li>
+                </ul>
+                <h2 class="title">Price Trend Prediction</h2>
+                <p>Once we were able to relate counties we did not have wholesale pricing for with counties that we did have wholesale pricing for, we began to experiment with regressive models to create a price trend prediction for each county on the map. An ARIMA model was leveraged to enable us enabled to easily model price trend prediction and apply those same trend predictions to counties without historical pricing data.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="attr_map.js"></script>
+</body>
+</html>
